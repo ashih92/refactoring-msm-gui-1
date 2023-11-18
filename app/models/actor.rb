@@ -12,12 +12,6 @@
 #
 class Actor < ApplicationRecord
   def characters
-    my_actor_id = self.actor.id
-
-    matching_actors = Actor.where({ :id => my_actor_id })
-
-    the_actor = matching_actors.at(0)
-
-    return the_actor
+    return Character.where({ :actor_id => self.id })
   end
 end
